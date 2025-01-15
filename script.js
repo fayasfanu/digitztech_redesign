@@ -53,66 +53,35 @@ const reviews = [
 
 //  animations 
 document.addEventListener('DOMContentLoaded', function () {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const target = entry.target;
-            if (entry.isIntersecting) {
-                
-                target.classList.add('cssanimation', 'fadeInLeft');
-            } else {
-                
-                target.classList.remove('cssanimation', 'fadeInLeft');
-            }
-        });
-    });
-
     
-    const elements = document.querySelectorAll('.left-text');
-    elements.forEach((el) => observer.observe(el));
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Create an observer to track visibility
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             const target = entry.target;
+
             if (entry.isIntersecting) {
                
-                target.classList.add('cssanimation', 'leBlurIn', 'random');
+                if (target.classList.contains('left-text')) {
+                    target.classList.add('cssanimation', 'fadeInLeft');
+                } else if (target.classList.contains('blur-text')) {
+                    target.classList.add('cssanimation', 'leBlurIn', 'random');
+                } else if (target.classList.contains('top-text')) {
+                    setTimeout(() => {
+                        target.classList.add('cssanimation', 'leFadeInBottom', 'sequence');
+                    }, 200);
+                }
             } else {
-                
-                target.classList.remove('cssanimation', 'leBlurIn', 'random');
+              
+                target.classList.remove('cssanimation', 'fadeInLeft', 'leBlurIn', 'random', 'leFadeInBottom', 'sequence');
             }
         });
     });
 
-  
-    const elements = document.querySelectorAll('.blur-text');
-    elements.forEach((el) => observer.observe(el));
-});
-
-document.addEventListener('DOMContentLoaded', function () {
    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const target = entry.target;
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    target.classList.add('cssanimation', 'leFadeInBottom', 'sequence');
-                }, 200);
-                
-            } else {
-                
-                target.classList.remove('cssanimation', 'leFadeInBottom', 'sequence');
-            }
-        });
-    });
-
-  
-    const elements = document.querySelectorAll('.top-text');
+    const elements = document.querySelectorAll('.left-text, .blur-text, .top-text');
+ 
     elements.forEach((el) => observer.observe(el));
 });
+
 
 
 
