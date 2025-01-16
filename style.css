@@ -261,6 +261,7 @@ body {
      word-wrap:break-word;
     line-height: 60px; 
     }
+  }
 .hero-section .hero-content p {
   color: var(--text-white-grey);
 }
