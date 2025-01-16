@@ -242,7 +242,10 @@ body {
   color: var(--text-black);
   line-height: 84px;
 }
-
+  @media (max-width: 500px) {
+    .hero-section .hero-content h2 {
+     word-wrap:break-word;
+    }
 .hero-section .hero-content p {
   color: var(--text-white-grey);
 }
