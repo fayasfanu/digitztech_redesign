@@ -256,9 +256,10 @@ body {
   color: var(--text-black);
   line-height: 84px;
 }
-  @media (max-width: 500px) {
+  @media (max-width: 450px) {
     .hero-section .hero-content h2 {
      word-wrap:break-word;
+    line-height: 60px; 
     }
 .hero-section .hero-content p {
   color: var(--text-white-grey);
